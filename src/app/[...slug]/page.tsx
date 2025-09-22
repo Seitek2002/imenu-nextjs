@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 // Import client component directly in a Server Component file
-import dynamic from 'next/dynamic';
-const LegacyAppNoSSR = dynamic(() => import('@/LegacyApp'), { ssr: false });
+import ClientLegacyApp from '@/components/ClientLegacyApp';
 
 const API_BASE =
   (process.env.NEXT_PUBLIC_API_BASE_URL as string) || 'https://imenu.kg/api/';
@@ -93,5 +92,5 @@ export async function generateMetadata(
 }
 
 export default function CatchAllNonOptionalPage() {
-  return <LegacyAppNoSSR />;
+  return <ClientLegacyApp />;
 }

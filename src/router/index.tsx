@@ -2,6 +2,7 @@
 
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ClientOnly from '@/components/ClientOnly';
 
 import Loader from 'components/Loader';
 
@@ -20,8 +21,9 @@ const ProtectedRoute = lazy(() => import('components/ProtectedRoute'));
 
 const AppRoutes = () => {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<Loader />}>
+    <ClientOnly>
+      <BrowserRouter>
+        <Suspense fallback={<Loader />}>
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/scan' element={<Scan />} />
@@ -41,7 +43,8 @@ const AppRoutes = () => {
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Suspense>
-    </BrowserRouter>
+      </BrowserRouter>
+    </ClientOnly>
   );
 };
 
