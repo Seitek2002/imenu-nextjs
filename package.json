@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "serve": "serve -s dist -p 3000"
   },
   "dependencies": {
     "@react-input/mask": "^2.0.4",
