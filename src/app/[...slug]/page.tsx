@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 // Import client component directly in a Server Component file
-import LegacyApp from '@/LegacyApp';
+import dynamic from 'next/dynamic';
+const LegacyAppNoSSR = dynamic(() => import('@/LegacyApp'), { ssr: false });
 
 const API_BASE =
   (process.env.NEXT_PUBLIC_API_BASE_URL as string) || 'https://imenu.kg/api/';
@@ -59,6 +60,9 @@ export async function generateMetadata(
     return {
       title,
       description,
+      icons: {
+        icon: data?.logo ? [data.logo] : ['/favicon.svg'],
+      },
       openGraph: {
         title,
         description,
@@ -81,11 +85,13 @@ export async function generateMetadata(
     return {
       title: 'iMenu.kg - ваше электронное меню!',
       description: 'iMenu.kg — ваше электронное меню!',
+      icons: {
+        icon: ['/favicon.svg'],
+      },
     };
   }
 }
 
 export default function CatchAllNonOptionalPage() {
-  // Client-only legacy app bootstrapped under this server route
-  return <LegacyApp />;
+  return <LegacyAppNoSSR />;
 }
