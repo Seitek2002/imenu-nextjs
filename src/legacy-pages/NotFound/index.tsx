@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useAppSelector } from 'hooks/useAppSelector';
 
 import notFoundImg from 'assets/images/not-found-products.png';
+import Image from 'next/image';
 
 import './style.scss';
 
@@ -34,7 +35,7 @@ const NotFound: React.FC<Props> = ({ message }) => {
   return (
     <section className='notfound font-inter bg-[#F1F2F3] px-[16px] pt-[40px] lg:max-w-[1140px] lg:mx-auto'>
       <div className='notfound__card'>
-        <img className='notfound__img' src={notFoundImg} alt='Not Found' />
+        <Image className='notfound__img' src={notFoundImg} alt='Not Found' width={notFoundImg.width} height={notFoundImg.height} />
         <h1 className='notfound__title'>{t('notFoundPage.title')}</h1>
         <p className='notfound__desc'>
           {message || (t('notFoundPage.description') as string)}

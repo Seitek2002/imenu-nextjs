@@ -6,32 +6,32 @@ declare module '*.svg' {
 }
 
 declare module '*.png' {
-  const src: string;
+  const src: import('next/image').StaticImageData;
   export default src;
 }
 
 declare module '*.jpg' {
-  const src: string;
+  const src: import('next/image').StaticImageData;
   export default src;
 }
 
 declare module '*.jpeg' {
-  const src: string;
+  const src: import('next/image').StaticImageData;
   export default src;
 }
 
 declare module '*.webp' {
-  const src: string;
+  const src: import('next/image').StaticImageData;
   export default src;
 }
 
 declare module '*.gif' {
-  const src: string;
+  const src: import('next/image').StaticImageData;
   export default src;
 }
 
 declare module '*.avif' {
-  const src: string;
+  const src: import('next/image').StaticImageData;
   export default src;
 }
 

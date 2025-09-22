@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import Image from 'next/image';
 import { useParams } from 'react-router-dom';
 
 import { useGetProductsQuery } from 'api/Products.api';
@@ -162,7 +163,7 @@ const Search: FC<IProps> = ({ onSearchChange, searchText, setSearchText }) => {
               <h3 className='text-center text-[24px] font-semibold mb-[24px]'>
                 Увы, ничего не найдено{'('}
               </h3>
-              <img src={nothing} alt='' className='w-full' />
+              <Image src={nothing} alt='' width={nothing.width} height={nothing.height} className='w-full h-auto' />
             </div>
           ))}
       </div>

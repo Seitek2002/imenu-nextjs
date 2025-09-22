@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import Image from 'next/image';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useGetProductsQuery } from 'api/Products.api';
@@ -159,7 +160,13 @@ const Catalog: FC<IProps> = ({ searchText, selectedCategory = 0, categoryTitle }
           <h3 className='text-center text-[24px] font-semibold mb-[24px]'>
             Увы, ничего не найдено{'('}
           </h3>
-          <img src={nothing} alt='' className='w-1/2' />
+          <Image
+            src={nothing}
+            alt=''
+            width={nothing.width}
+            height={nothing.height}
+            className='w-1/2 h-auto'
+          />
         </div>
       )}
     </section>
