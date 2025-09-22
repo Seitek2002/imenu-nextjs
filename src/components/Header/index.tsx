@@ -67,7 +67,7 @@ const Header: FC<IProps> = ({ searchText, setSearchText }) => {
 
         {setSearchText && (
           <label htmlFor='search' className='header__search bg-[#F9F9F9]'>
-            <Image src={searchIcon} alt='Search' width={16} height={16} />
+            <Image src={searchIcon} alt='Search' width={44} height={44} />
             <input
               type='text'
               placeholder={t("search")}

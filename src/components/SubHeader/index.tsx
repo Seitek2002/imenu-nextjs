@@ -86,8 +86,8 @@ const SubHeader = () => {
             <Image
               src={data?.logo || '/assets/images/SubHeader/logo.png'}
               alt={data?.companyName || 'Venue logo'}
-              width={36}
-              height={36}
+              width={44}
+              height={44}
             />
           </div>
           <div>

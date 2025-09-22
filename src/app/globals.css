@@ -2,23 +2,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Global tokens */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  /* These are provided by next/font in layout.tsx */
-  --font-geist-sans: var(--font-geist-sans);
-  --font-geist-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
