@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack -p 3001",
     "build": "next build --turbopack",
-    "start": "next start",
+    "start": "next start -p 3001",
     "lint": "eslint",
-    "serve": "serve -s dist -p 3000"
+    "serve": "serve -s dist -p 3001"
   },
   "dependencies": {
     "@react-input/mask": "^2.0.4",
