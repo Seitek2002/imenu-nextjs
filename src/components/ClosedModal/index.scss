@@ -1,0 +1,46 @@
+.closed-modal {
+  @apply max-w-[92%] md:max-w-[480px];
+  width: auto;
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background: #fff;
+  z-index: 100;
+  transition: 0.4s;
+  transform: translateX(-50%);
+  @apply rounded-[14px] p-[20px] shadow-xl;
+
+  &.active {
+    top: 50%;
+    @apply translate-x-[-50%] translate-y-[-50%];
+  }
+
+  .title {
+    @apply text-[20px] md:text-[22px] font-semibold text-gray-900 text-center;
+  }
+
+  .desc {
+    @apply text-[14px] text-gray-600 text-center;
+  }
+
+  .schedule {
+    @apply text-[14px] text-gray-600 text-center mt-[4px];
+  }
+
+  .action {
+    @apply mt-[6px] text-white py-[12px] rounded-[12px] font-medium;
+  }
+}
+
+/* Basic overlay used by modals. If already defined elsewhere, these styles will complement it */
+.overlay {
+  @apply fixed top-0 left-0 w-full h-[0%] bg-[rgba(0,0,0,0.5)] z-[50] transition-all duration-300;
+}
+.overlay.active {
+  @apply h-[100%];
+}

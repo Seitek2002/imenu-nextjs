@@ -1,0 +1,58 @@
+.weekly-modal {
+  @apply max-w-[92%] md:max-w-[480px];
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  background: #fff;
+  z-index: 100;
+  transition: 0.4s;
+  transform: translateX(-50%);
+  @apply rounded-[14px] p-[20px] shadow-xl;
+
+  &.active {
+    top: 50%;
+    @apply translate-x-[-50%] translate-y-[-50%];
+  }
+
+  .title {
+    @apply text-[20px] md:text-[22px] font-semibold text-gray-900 text-center;
+  }
+
+  .list {
+    @apply grid gap-2;
+  }
+
+  .row {
+    @apply flex items-center justify-between;
+    .day {
+      @apply text-[14px] text-gray-600;
+    }
+    .time {
+      @apply text-[14px] font-medium text-gray-900;
+    }
+  }
+
+  .action {
+    @apply mt-[6px] text-white py-[12px] rounded-[12px] font-medium;
+  }
+
+  /* Highlight current day with a bullet using current text color */
+  .row.today .day {
+    position: relative;
+  }
+  .row.today .day::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: currentColor;
+    margin-right: 8px;
+    transform: translateY(-1px);
+  }
+}

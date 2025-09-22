@@ -1,0 +1,31 @@
+.notfound {
+  @apply min-h-[100dvh] pb-[80px] pt-[50px] relative;
+
+  &__card {
+    @apply bg-white rounded-[16px] p-[20px] mt-[12px] flex flex-col items-center text-center;
+  }
+
+  &__img {
+    @apply w-[220px] h-auto object-contain mb-[12px];
+  }
+
+  &__title {
+    @apply text-[22px] font-semibold mb-[8px] text-[#111827];
+  }
+
+  &__desc {
+    @apply text-[14px] text-[#6B7280] mb-[16px] max-w-[520px];
+  }
+
+  &__actions {
+    @apply flex gap-[12px] flex-wrap justify-center;
+  }
+
+  &__btn {
+    @apply px-[16px] py-[12px] rounded-[12px] text-white min-w-[160px];
+
+    &.outline {
+      @apply bg-white border-[2px];
+    }
+  }
+}
