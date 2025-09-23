@@ -3,20 +3,19 @@ import Image from 'next/image';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { useGetClientBonusQuery } from 'api/Client.api';
 import { useGetVenueQuery } from 'api/Venue.api';
- // import { useAppSelector } from 'hooks/useAppSelector';
- // import check from 'assets/icons/SubHeader/check.svg';
- // import logo from 'assets/images/SubHeader/logo.png';
+// import { useAppSelector } from 'hooks/useAppSelector';
+// import check from 'assets/icons/SubHeader/check.svg';
+// import logo from 'assets/images/SubHeader/logo.png';
 import WeeklyScheduleModal from 'components/WeeklyScheduleModal';
 
 const calendarIcon = '/assets/icons/SubHeader/calendar.svg';
-const bellIcon = '/assets/icons/SubHeader/coin.png';
+const bellIcon = '/assets/icons/SubHeader/bell.svg';
 
 import './style.scss';
 
 import { clearCart, setVenue } from 'src/store/yourFeatureSlice';
-import { loadUsersDataFromStorage,loadVenueFromStorage } from 'src/utlis/storageUtils';
+import { loadVenueFromStorage } from 'src/utlis/storageUtils';
 import { getTodayScheduleRangeString } from 'src/utlis/timeUtils';
 import { formatSchedule } from 'src/utlis/workTime';
 
@@ -32,20 +31,6 @@ const SubHeader = () => {
   const navigate = useNavigate();
 
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
-
-  // Fetch dynamic client bonus (same as static points usage)
-  const phoneForBonus = (() => {
-    try {
-      const u = loadUsersDataFromStorage();
-      return (u?.phoneNumber || '').trim();
-    } catch {
-      return '';
-    }
-  })();
-  const { data: bonusData } = useGetClientBonusQuery(
-    { phone: phoneForBonus, venueSlug: data?.slug || venue },
-    { skip: !phoneForBonus || !(data?.slug || venue) }
-  );
 
   const scheduleShort = (() => {
     try {
@@ -69,10 +54,6 @@ const SubHeader = () => {
     if (loadedVenue.companyName !== venue) {
       dispatch(clearCart());
     }
-
-    // if(venueData.activeSpot !== location.pathname.split('/').filter((item) => +item)[0]) {
-
-    // }
   }, []);
 
   return (
@@ -97,10 +78,8 @@ const SubHeader = () => {
         </div>
         <div className='flex items-center justify-between md:gap-[12px] md:flex-initial'>
           <div className='call'>
-            <span className='text-[14px] font-bold text-center flex items-center gap-[8px]'>
-              <Image src={bellIcon} alt='' width={20} height={20} />
-              <span className='mt-[4px] text-[10px] md:text-[14px]'>{bonusData?.bonus ?? 0} <span className='hidden md:inline'>б.</span></span>
-            </span>
+            <Image width={16} height={16} src={bellIcon} alt='' />
+            <span className='hidden md:inline'>Позвать официанта</span>
           </div>
           <div
             className='call cursor-pointer'
@@ -108,7 +87,12 @@ const SubHeader = () => {
             aria-label='График работы'
             onClick={() => setIsScheduleOpen(true)}
           >
-            <Image src={calendarIcon} alt='График работы' width={20} height={20} />
+            <Image
+              src={calendarIcon}
+              alt='График работы'
+              width={20}
+              height={20}
+            />
           </div>
           {/* {data?.table?.tableNum && (
             <div className='call'>
