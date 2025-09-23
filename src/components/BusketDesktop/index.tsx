@@ -76,7 +76,7 @@ const BusketDesktop = ({
         )}
       </div>
       <hr />
-      <div className='bg-[#fff] p-[12px]'>
+      <div className='bg-[#fff] p-[12px] rounded-[12px]'>
         <button
           style={{ backgroundColor: colorTheme }}
           onClick={handleClick}
