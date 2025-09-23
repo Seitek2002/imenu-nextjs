@@ -7,7 +7,7 @@
   }
 
   &__content {
-    @apply flex items-center gap-[15px] pt-[15px] pb-[30px] md:flex-wrap md:gap-[30px] md:h-[107px] md:overflow-hidden;
+    @apply flex items-center gap-[15px] pt-[15px] pb-[40px] md:flex-wrap md:gap-[35px] md:h-[107px] md:overflow-hidden;
 
     &.active {
       @apply md:h-auto;
@@ -46,7 +46,7 @@
   }
 
   span {
-    @apply mt-[8px] font-medium text-[12px] text-center block;
+    @apply font-medium text-[12px] text-center block;
     // @apply md:mt-0 md:text-[10px];
   }
 }
