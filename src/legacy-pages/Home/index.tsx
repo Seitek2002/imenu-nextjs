@@ -6,7 +6,6 @@ import Header from 'components/Header';
 import Loader from 'components/Loader';
 import SupHeader from 'components/SubHeader';
 
-import clearCartIcon from 'assets/icons/Busket/clear-cart.svg';
 
 import { loadUsersDataFromStorage } from 'src/utlis/storageUtils';
 
@@ -132,9 +131,9 @@ const Home = () => {
                 <h2>{t('basket.title')}</h2>
                 <img
                   onClick={clearCartHandler}
-                  src={clearCartIcon}
-                  alt=''
-                  className='cursor-pointer'
+                  src="/assets/icons/Busket/clear-cart.svg"
+                  alt=""
+                  className="cursor-pointer"
                 />
               </header>
               <Suspense fallback={<Loader />}>

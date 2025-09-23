@@ -28,6 +28,12 @@ const ClosedModal: FC<ClosedModalProps> = ({
     <>
       <div className={isShow ? 'overlay active' : 'overlay'} onClick={onClose} />
       <div className={isShow ? 'closed-modal active' : 'closed-modal'}>
+        <img
+          src="/assets/icons/close.svg"
+          alt="close-icon"
+          className="close"
+          onClick={onClose}
+        />
         <h3 className='title'>
           {title ?? t('closed.title')}
         </h3>

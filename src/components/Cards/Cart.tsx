@@ -59,9 +59,9 @@ const BusketCard: FC<IProps> = ({ item }) => {
         </div>
       </div>
       <div className='busket-card__counter'>
-        <Image onClick={decrement} src={minus} alt='' width={20} height={20} />
+        <Image onClick={decrement} src={minus} alt='' width={16} height={16} />
         <span>{item.quantity}</span>
-        <Image onClick={increment} src={plus} alt='' width={20} height={20} />
+        <Image onClick={increment} src={plus} alt='' width={16} height={16} />
       </div>
     </div>
   );

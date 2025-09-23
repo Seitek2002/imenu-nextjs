@@ -78,6 +78,12 @@ const WeeklyScheduleModal: FC<Props> = ({ isShow, onClose, schedules, fallbackSc
     <>
       <div className={isShow ? 'overlay active' : 'overlay'} onClick={onClose} />
       <div className={isShow ? 'weekly-modal active' : 'weekly-modal'}>
+        <img
+          src="/assets/icons/close.svg"
+          alt="close-icon"
+          className="close"
+          onClick={onClose}
+        />
         <h3 className='title'>
           {t('closed.scheduleTitle', { defaultValue: 'График работы' })}
         </h3>

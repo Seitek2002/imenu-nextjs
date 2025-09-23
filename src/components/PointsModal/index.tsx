@@ -58,6 +58,12 @@ const PointsModal: FC<Props> = ({
         onClick={onCancel}
       />
       <div className={isShow ? 'points-modal active' : 'points-modal'}>
+        <img
+          src="/assets/icons/close.svg"
+          alt="close-icon"
+          className="close"
+          onClick={onCancel}
+        />
         <h3 className='title'>Сколько баллов хотите потратить?</h3>
         <div className='content'>
           {step === 'points' ? (

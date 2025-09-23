@@ -41,6 +41,12 @@
     @apply mt-[6px] text-white py-[12px] rounded-[12px] font-medium;
   }
 
+  .close {
+    @apply absolute right-[10px] top-[10px] cursor-pointer;
+    width: 20px;
+    height: 20px;
+  }
+
   /* Highlight current day with a bullet using current text color */
   .row.today .day {
     position: relative;

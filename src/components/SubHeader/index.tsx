@@ -11,7 +11,7 @@ import { useGetVenueQuery } from 'api/Venue.api';
 import WeeklyScheduleModal from 'components/WeeklyScheduleModal';
 
 const calendarIcon = '/assets/icons/SubHeader/calendar.svg';
-const bellIcon = '/assets/icons/SubHeader/bell.svg';
+const bellIcon = '/assets/icons/SubHeader/coin.png';
 
 import './style.scss';
 

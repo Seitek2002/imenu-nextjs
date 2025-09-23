@@ -35,6 +35,12 @@
   .action {
     @apply mt-[6px] text-white py-[12px] rounded-[12px] font-medium;
   }
+
+  .close {
+    @apply absolute right-[10px] top-[10px] cursor-pointer;
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* Basic overlay used by modals. If already defined elsewhere, these styles will complement it */

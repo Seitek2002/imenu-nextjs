@@ -27,6 +27,12 @@ const OtpModal: FC<Props> = ({ isShow, onCancel, onConfirm }) => {
     <>
       <div className={isShow ? 'overlay active' : 'overlay'} onClick={onCancel} />
       <div className={isShow ? 'otp-modal active' : 'otp-modal'}>
+        <img
+          src="/assets/icons/close.svg"
+          alt="close-icon"
+          className="close"
+          onClick={onCancel}
+        />
         <h3 className="title">Введите SMS-код</h3>
         <div className="content">
           <input

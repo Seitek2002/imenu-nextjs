@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'hooks/useAppDispatch';
 import { useAppSelector } from 'hooks/useAppSelector';
 
-import close from 'assets/icons/close.svg';
 
 import './index.scss';
 
@@ -37,7 +36,7 @@ const ClearCartModal: FC<IProps> = ({ isShow, setActive }) => {
         onClick={handleClose}
       ></div>
       <div className={isShow ? 'clear-cart-modal active' : 'clear-cart-modal'}>
-        <img src={close} alt='close-icon' onClick={handleClose} />
+        <img src="/assets/icons/close.svg" alt="close-icon" onClick={handleClose} />
         <h3 className='text-[20px] font-medium'>{t('basket.removeAllConfirm.title')}</h3>
         <div className='clear-cart-modal__btns'>
           <button className='bg-[#F9F9F9]' onClick={handleClose}>{t('cancellation')}</button>
