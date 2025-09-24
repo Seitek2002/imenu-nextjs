@@ -57,6 +57,11 @@ export interface IVenues {
   deliveryFixedFee?: string | null; // decimal как строка
   deliveryFreeFrom?: string | null; // decimal как строка или null
 
+  // Опциональные проценты обслуживания по режимам (если приходят с бэка)
+  dineinServiceFeePercent?: number;
+  takeoutServiceFeePercent?: number;
+  deliveryServiceFeePercent?: number;
+
   // Новое поле: HTML-строка с условиями/офертой
   terms?: string | null;
 

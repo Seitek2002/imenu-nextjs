@@ -49,9 +49,9 @@ const SubHeader = () => {
   }, [data, dispatch]);
 
   useEffect(() => {
-    const loadedVenue = loadVenueFromStorage();
+    const { companyName } = loadVenueFromStorage();
 
-    if (loadedVenue.companyName !== venue) {
+    if (companyName.toLowerCase() !== venue) {
       dispatch(clearCart());
     }
   }, []);

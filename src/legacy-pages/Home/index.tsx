@@ -6,7 +6,6 @@ import Header from 'components/Header';
 import Loader from 'components/Loader';
 import SupHeader from 'components/SubHeader';
 
-
 import { loadUsersDataFromStorage } from 'src/utlis/storageUtils';
 
 const Catalog = lazy(() => import('./components/Catalog'));
@@ -15,7 +14,6 @@ const Search = lazy(() => import('./components/Search'));
 const BusketDesktop = lazy(() => import('components/BusketDesktop'));
 const ClearCartModal = lazy(() => import('components/ClearCartModal'));
 const Hero = lazy(() => import('components/Hero'));
-
 
 const Home = () => {
   const [searchText, setSearchText] = useState('');
@@ -59,7 +57,6 @@ const Home = () => {
         activeSpot: +location.pathname.split('/').filter((item) => +item)[0],
       })
     );
-    console.log(JSON.parse(localStorage.getItem('users') ?? '{}'));
   }, []);
 
   return (
@@ -131,9 +128,9 @@ const Home = () => {
                 <h2>{t('basket.title')}</h2>
                 <img
                   onClick={clearCartHandler}
-                  src="/assets/icons/Busket/clear-cart.svg"
-                  alt=""
-                  className="cursor-pointer"
+                  src='/assets/icons/Busket/clear-cart.svg'
+                  alt=''
+                  className='cursor-pointer'
                 />
               </header>
               <Suspense fallback={<Loader />}>

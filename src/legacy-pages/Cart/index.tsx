@@ -382,7 +382,20 @@ const Cart: React.FC = () => {
     const realPrice = getCartItemPrice(item);
     return acc + realPrice * item.quantity;
   }, 0);
-  const serviceFeeAmt = subtotal * (venueData.serviceFeePercent / 100);
+
+  // Use correct service fee percent by service mode with safe defaults
+  const currentServiceMode = orderTypes[activeIndex]?.value; // 1 dine-in, 2 takeout, 3 delivery
+  const serviceFeePercent =
+    currentServiceMode === 1
+      ? (venueData?.dineinServiceFeePercent ?? venueData?.serviceFeePercent ?? 0)
+      : currentServiceMode === 2
+      ? (venueData?.takeoutServiceFeePercent ?? venueData?.serviceFeePercent ?? 0)
+      : currentServiceMode === 3
+      ? (venueData?.deliveryServiceFeePercent ?? venueData?.serviceFeePercent ?? 0)
+      : (venueData?.serviceFeePercent ?? 0);
+
+  const serviceFeeAmt = subtotal * (Number(serviceFeePercent) / 100);
+
   const isDeliveryType = (orderTypes[activeIndex]?.value ?? 3) === 3;
   const deliveryFreeFrom =
     venueData?.deliveryFreeFrom != null
@@ -915,15 +928,17 @@ const Cart: React.FC = () => {
                     <div className='cart__sum-item text-[#80868B]'>
                       {t('services')}
                       <div className='cart__sum-total service'>
-                        {venueData.serviceFeePercent}%
+                        {serviceFeePercent}%
                       </div>
                     </div>
-                    <div className='cart__sum-item text-[#80868B]'>
-                      {t('deliveryFee')}
-                      <div className='cart__sum-total delivery'>
-                        {deliveryFee} c
+                    {isDeliveryType && (
+                      <div className='cart__sum-item text-[#80868B]'>
+                        {t('deliveryFee')}
+                        <div className='cart__sum-total delivery'>
+                          {deliveryFee} c
+                        </div>
                       </div>
-                    </div>
+                    )}
                     {hasFreeDeliveryHint && (
                       <div className='cart__sum-item text-[#80868B]'>
                         <span className=''>{t('freeDeliveryFrom')}</span>

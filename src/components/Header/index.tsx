@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +11,7 @@ const bellIcon = '/assets/icons/SubHeader/coin.png';
 import './style.scss';
 import { useGetClientBonusQuery, useGetVenueQuery } from '@/api';
 import { loadUsersDataFromStorage } from '@/utlis/storageUtils';
-import { useParams } from 'next/navigation';
+import { useParams } from 'react-router-dom';
 
 const LANGUAGES = ['RU', 'KG', 'ENG'];
 const LANGUAGE_MAP: Record<string, string> = {
