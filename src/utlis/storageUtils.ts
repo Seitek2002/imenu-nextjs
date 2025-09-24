@@ -67,7 +67,12 @@ export const loadVenueFromStorage: () => IVenues = () => {
     companyName: '',
     slug: '',
     logo: '',
+    // базовый процент обслуживания (fallback)
     serviceFeePercent: 0,
+    // новые проценты по режимам обслуживания
+    dineinServiceFeePercent: 0,
+    takeoutServiceFeePercent: 0,
+    deliveryServiceFeePercent: 0,
     isDeliveryAvailable: false,
     isTakeoutAvailable: false,
     isDineinAvailable: false,

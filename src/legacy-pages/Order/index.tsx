@@ -117,7 +117,17 @@ const Order = () => {
         (acc, item) => acc + Number(item.price) * item.count,
         0
       );
-      const cartSum = subtotal + subtotal * (venueData.serviceFeePercent / 100);
+      const mode = data?.serviceMode;
+      const serviceFeePercent =
+        mode === 1
+          ? (venueData?.dineinServiceFeePercent ?? venueData?.serviceFeePercent ?? 0)
+          : mode === 2
+          ? (venueData?.takeoutServiceFeePercent ?? venueData?.serviceFeePercent ?? 0)
+          : mode === 3
+          ? (venueData?.deliveryServiceFeePercent ?? venueData?.serviceFeePercent ?? 0)
+          : (venueData?.serviceFeePercent ?? 0);
+
+      const cartSum = subtotal + subtotal * (Number(serviceFeePercent) / 100);
 
       return cartSum;
     } else {
@@ -341,7 +351,18 @@ const Order = () => {
               <div className='cart__sum-item text-[#80868B]'>
                 {t('services')}
                 <div className='cart__sum-total service'>
-                  {venueData.serviceFeePercent}%
+                  {(() => {
+                    const mode = data?.serviceMode;
+                    const p =
+                      mode === 1
+                        ? (venueData?.dineinServiceFeePercent ?? venueData?.serviceFeePercent ?? 0)
+                        : mode === 2
+                        ? (venueData?.takeoutServiceFeePercent ?? venueData?.serviceFeePercent ?? 0)
+                        : mode === 3
+                        ? (venueData?.deliveryServiceFeePercent ?? venueData?.serviceFeePercent ?? 0)
+                        : (venueData?.serviceFeePercent ?? 0);
+                    return p;
+                  })()}%
                 </div>
               </div>
             </div>
