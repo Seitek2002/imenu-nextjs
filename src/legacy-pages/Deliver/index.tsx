@@ -9,6 +9,7 @@ import Header from 'components/Header';
 import { useMask } from '@react-input/mask';
 import { setUsersData } from 'src/store/yourFeatureSlice';
 import { loadUsersDataFromStorage } from 'src/utlis/storageUtils';
+import SubHeader from '@/components/SubHeader';
 
 const Deliver = () => {
   const navigate = useNavigate();
@@ -64,20 +65,7 @@ const Deliver = () => {
       <div className='header bg-white rounded-[12px] p-[12px]'>
         <Header searchText='' />
         <hr className='my-[10px]' />
-        <div className='sub-header'>
-          <div className='sub-header__content'>
-            <div className='venue'>
-              <div className='logo'>
-                <img src={venueData?.logo || undefined} alt='' />
-              </div>
-              <div>
-                <div className='text-[20px] font-bold'>
-                  {venueData?.companyName}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SubHeader />
       </div>
       <div className='tabs__content'>
         <form className='cart__contacts' onSubmit={handleClick}>

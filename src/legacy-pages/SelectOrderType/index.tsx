@@ -12,6 +12,7 @@ import './style.scss';
 
 import { clearCart, setVenue } from 'src/store/yourFeatureSlice';
 import { loadVenueFromStorage } from 'src/utlis/storageUtils';
+import SubHeader from '@/components/SubHeader';
 
 const SelectOrderType = () => {
   const { t } = useTranslation();
@@ -83,18 +84,7 @@ const SelectOrderType = () => {
       <div className='header bg-white rounded-[12px] p-[12px]'>
         <Header searchText='' />
         <hr className='my-[10px]' />
-        <div className='sub-header'>
-          <div className='sub-header__content'>
-            <div className='venue'>
-              <div className='logo'>
-                <img src={data?.logo || undefined} alt='' />
-              </div>
-              <div>
-                <div className='text-[20px] font-bold'>{data?.companyName}</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SubHeader />
       </div>
       {/* <Tabs spots={data?.spots || []} /> */}
       <div className='select-order-type__content'>
